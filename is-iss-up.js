@@ -8,7 +8,7 @@ const reference = {
   ok: [73, 10, 72]
 };
 
-const tolerance = 10;
+const tolerance = 30;
 
 function rgbDistance([r1, g1, b1], [r2, g2, b2]) {
   return Math.sqrt(Math.pow(r2 - r1, 2) + Math.pow(g2 - g1, 2) + Math.pow(b2 - b1, 2));
