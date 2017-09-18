@@ -20,7 +20,9 @@ defmodule StreamswitcherWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", StreamswitcherWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", StreamswitcherWeb do
+    pipe_through :api
+
+    resources "/sources", SourceController
+  end
 end

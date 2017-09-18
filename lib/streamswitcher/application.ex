@@ -12,6 +12,7 @@ defmodule Streamswitcher.Application do
       supervisor(StreamswitcherWeb.Endpoint, []),
       # Start your own worker by calling: Streamswitcher.Worker.start_link(arg1, arg2, arg3)
       # worker(Streamswitcher.Worker, [arg1, arg2, arg3]),
+      worker(Streamswitcher.Sources.ISS, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -19,3 +19,38 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import player from "./player"
+
+function play(source) {
+  player.ready(function onPlayerReady() {
+    if (source.src === player.src()) {
+      return;
+    }
+    this.src(source);
+  });
+}
+
+
+function pollSources() {
+  fetch('./api/sources')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.error(response.status);
+        return;
+      }
+
+      response.json().then(function(data) {
+        const liveSources = data.length && data.filter((s) => s.status) || [];
+        if (liveSources.length) {
+          play(liveSources[0]);
+        }
+      });
+    }
+  )
+  .catch(console.error);
+}
+
+pollSources();
+setInterval(pollSources, 5000);
