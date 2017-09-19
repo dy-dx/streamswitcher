@@ -48,7 +48,7 @@ function pollSources() {
       }
 
       response.json().then(function(data) {
-        const liveSources = data.length && data.filter((s) => s.status) || [];
+        const liveSources = data.length && data.filter((s) => s.is_up) || [];
         if (liveSources.length) {
           play(liveSources[0]);
         }

@@ -9,3 +9,25 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+
+.container {
+  position: relative;
+}
+
+.iss-tracker-wrapper {
+  width: 735px;
+  height: 235px;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-radius: 6px;
+}
+
+.iss-tracker-iframe {
+  position: absolute;
+  height: 237px;
+  top: -3px;
+  width: 800px;
+  left: -34px;
+}
