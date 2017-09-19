@@ -60,3 +60,9 @@ function pollSources() {
 
 pollSources();
 setInterval(pollSources, 5000);
+
+try {
+  loadOrbitData();
+} catch (e) {
+  console.error(e);
+}

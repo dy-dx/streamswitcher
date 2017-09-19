@@ -1,6 +1,16 @@
 <div class="container">
   <video id="player" class="video-js"></video>
-  <div class="iss-tracker-wrapper">
-    <iframe class="iss-tracker-iframe" src="http://iss.astroviewer.net/#cockpit" scrolling="no"></iframe>
+  <div class="iss-tracker">
+    <div class="cockpit">
+      <p class="cockpit-header">Ground point</p>
+      <p class="cockpit-data" id="gpt">&nbsp;<br />&nbsp;</p>
+      <p class="cockpit-header">Time</p>
+      <p class="cockpit-data" id="time">&nbsp;</p>
+      <p class="cockpit-header">Orbital speed</p>
+      <p class="cockpit-data" id="speed">&nbsp;<br />&nbsp;</p>
+      <p class="cockpit-header">Altitude</p>
+      <p class="cockpit-data" id="alt">&nbsp;</p>
+    </div>
+    <canvas id="map_canvas" width="600" height="235"></canvas>
   </div>
 </div>
