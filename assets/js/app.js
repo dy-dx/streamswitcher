@@ -22,6 +22,12 @@ import "phoenix_html"
 
 import player from "./player"
 
+// todo: debounce
+window.onresize = function onWindowResize() {
+  player.width(document.body.clientWidth);
+  player.height(document.body.clientHeight);
+}
+
 function play(source) {
   player.ready(function onPlayerReady() {
     if (source.src === player.src()) {
