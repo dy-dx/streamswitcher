@@ -57,10 +57,15 @@ defmodule Streamswitcher.Sources.ISS do
     {:reply, state.status, state}
   end
 
-  def handle_info(:work, state) do
-    status = fetch_status() # Do work
-    schedule_work() # Reschedule once more
+  def handle_cast({:update_status, status}, state) do
     {:noreply, %{state | status: status}}
+  end
+
+  def handle_info(:work, state) do
+    # Do work in another process, which will asynchronously pass results back to us
+    spawn fn -> GenServer.cast(__MODULE__, {:update_status, fetch_status()}) end
+    schedule_work() # Reschedule once more
+    {:noreply, state}
   end
 
   defp fetch_status do
