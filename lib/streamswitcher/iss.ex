@@ -4,6 +4,7 @@ defmodule Streamswitcher.Sources.ISS do
   @reference %{
     black: [8, 0, 31],
     blue: [2, 4, 222],
+    blue2: [0, 6, 246],
     dark: [49, 0, 66],
     ok: [73, 10, 72]
   }
@@ -21,6 +22,7 @@ defmodule Streamswitcher.Sources.ISS do
   def isColorValid?(rgb) do
     rgbDistance(rgb, @reference.black) < @tolerance
       || rgbDistance(rgb, @reference.blue) < @tolerance
+      || rgbDistance(rgb, @reference.blue2) < @tolerance
       || rgbDistance(rgb, @reference.dark) < @tolerance
   end
 
