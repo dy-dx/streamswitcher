@@ -12,7 +12,7 @@ defmodule Streamswitcher.Sources.ISS do
   @tolerance 20
 
   def url do
-    "http://iphone-streaming.ustream.tv/uhls/9408562/streams/live/iphone/playlist.m3u8"
+    "https://iphone-streaming.ustream.tv/uhls/9408562/streams/live/iphone/playlist.m3u8"
   end
 
   def rgbDistance([r1, g1, b1], [r2, g2, b2]) do
