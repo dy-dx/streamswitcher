@@ -5,7 +5,8 @@ defmodule Streamswitcher.Sources.ISS do
     black: [8, 0, 31],
     blue: [2, 4, 222],
     blue2: [0, 6, 246],
-    dark: [49, 0, 66]
+    dark: [49, 0, 66],
+    dark2: [33, 0, 37],
   }
 
   @references_up %{
