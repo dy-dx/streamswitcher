@@ -13,7 +13,7 @@
     <script>window.HELP_IMPROVE_VIDEOJS = false;</script>
     <script src="//vjs.zencdn.net/6.2.7/video.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/videojs-youtube@2.4.0/dist/Youtube.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/videojs-contrib-hls@5.10.1/dist/videojs-contrib-hls.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/videojs-contrib-hls@5.11.0/dist/videojs-contrib-hls.min.js"></script>
   </head>
 
   <body>

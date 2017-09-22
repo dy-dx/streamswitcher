@@ -11,7 +11,8 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
+import 'phoenix_html';
+import debounce from 'debounce';
 
 // Import local files
 //
@@ -20,23 +21,11 @@ import "phoenix_html"
 
 // import socket from "./socket"
 
-import player from "./player"
+import { play, setDimensions } from './player';
 
-// todo: debounce
-window.onresize = function onWindowResize() {
-  player.width(document.body.clientWidth);
-  player.height(document.body.clientHeight);
-}
-
-function play(source) {
-  player.ready(function onPlayerReady() {
-    if (source.src === player.src()) {
-      return;
-    }
-    this.src(source);
-  });
-}
-
+window.onresize = debounce(function onWindowResize() {
+  setDimensions(document.body.clientWidth, document.body.clientHeight);
+}, 200);
 
 function pollSources() {
   fetch('./api/sources')

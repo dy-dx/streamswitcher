@@ -1,5 +1,5 @@
 <div class="container">
-  <video id="player" class="video-js"></video>
+  <div id="player-container"></div>
   <div class="iss-tracker">
     <div class="cockpit">
       <p class="cockpit-header">Ground point</p>
