@@ -24,5 +24,8 @@ defmodule StreamswitcherWeb.Router do
     pipe_through :api
 
     resources "/sources", SourceController
+    scope "/orbit" do
+      get "/proxy_astroviewer_data", OrbitController, :proxy_astroviewer_data
+    end
   end
 end

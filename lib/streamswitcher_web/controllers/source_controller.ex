@@ -6,6 +6,6 @@ defmodule StreamswitcherWeb.SourceController do
 
   def index(conn, _params) do
     sources = Sources.list_all
-    render conn, sources: sources
+    json conn, sources
   end
 end

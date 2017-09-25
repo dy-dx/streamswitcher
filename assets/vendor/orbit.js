@@ -19,9 +19,7 @@ function loadOrbitData() {
   if (isLoadingOrbitData) { return; }
   isLoadingOrbitData = true;
 
-  var timestamp = new Date().getTime();
-  var src = 'https://cors.io/?http://astroviewer-sat2a.appspot.com/orbit?var=orbit&t=' + timestamp;
-  fetch(src)
+  fetch('./api/orbit/proxy_astroviewer_data')
   .then(function (response) {
     return response.text();
   })
