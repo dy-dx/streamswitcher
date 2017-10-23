@@ -1,4 +1,4 @@
-FROM elixir:1.5.1
+FROM elixir:1.5.2
 
 EXPOSE 4000
 
