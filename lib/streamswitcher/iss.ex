@@ -19,12 +19,13 @@ defmodule Streamswitcher.Sources.ISS do
   @channel_id "9408562"
 
   def url do
-    "https://iphone-streaming.ustream.tv/uhls/#{@channel_id}/streams/live/iphone/playlist.m3u8"
+    "http://iphone-streaming.ustream.tv/uhls/#{@channel_id}/streams/live/iphone/playlist.m3u8"
   end
 
   def rgb_cmd do
-    "ffmpeg -y -loglevel 0 -i #{url()} -an -f image2 -vframes 1 - " <>
-      "| convert - -scale 1x1! -format '%[pixel:s]' info:-"
+    "stream_url=$(curl -s -L #{url()} | grep -v '#' | head -n 1); " <>
+    "ffmpeg -y -loglevel 0 -i $stream_url -an -f image2 -vframes 1 - " <>
+      "| convert - -scale 1x1\! -format '%[pixel:s]' info:-"
   end
 
   def rgb_distance([r1, g1, b1], [r2, g2, b2]) do

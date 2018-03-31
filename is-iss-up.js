@@ -22,8 +22,9 @@ function isBlackOrBlue(rgb) {
 
 const childProcess = exec(
   [
+    'stream_url=$(curl -L "http://iphone-streaming.ustream.tv/uhls/9408562/streams/live/iphone/playlist.m3u8" | grep -v "#" | head -n 1);',
     'ffmpeg -y -i',
-    'http://iphone-streaming.ustream.tv/uhls/9408562/streams/live/iphone/playlist.m3u8',
+    '$stream_url',
     '-an -f image2 -vframes 1 -',
     '|',
     'convert - -scale 1x1\! -format "%[pixel:s]" info:-'
